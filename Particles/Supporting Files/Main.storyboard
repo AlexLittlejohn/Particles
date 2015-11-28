@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Particles View Controller-->
         <scene sceneID="DhE-2n-o11">
             <objects>
-                <viewController id="xnz-4a-UhI" customClass="GameViewController" customModule="Particles" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xnz-4a-UhI" customClass="ParticlesViewController" customModule="Particles" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="nPQ-Mv-FWl"/>
                         <viewControllerLayoutGuide type="bottom" id="E4i-v4-vZP"/>
