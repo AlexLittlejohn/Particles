@@ -15,8 +15,8 @@ class Particle: SKShapeNode {
     var y: CGFloat
     var mass: CGFloat
     var radius: CGFloat
-    var charge: CGFloat = random([1, -1])!
-    var color = random(Colors)!
+    var charge: CGFloat = [1, -1].random()!
+    var color = Colors.random()!
     var fx: CGFloat = 0
     var fy: CGFloat = 0
     var vx: CGFloat = 0
@@ -34,15 +34,15 @@ class Particle: SKShapeNode {
         super.init()
         
         strokeColor = color
-        lineCap = CGLineCap.Round
+        lineCap = CGLineCap.round
     }
     
     required init?(coder aDecoder: NSCoder) {
-        let size = UIScreen.mainScreen().bounds.size
+        let size = UIScreen.main.bounds.size
         
-        x = random(0, size.width)
-        y = random(0, size.height)
-        mass = random(0.5, 8)
+        x = random(min: 0, max: size.width)
+        y = random(min: 0, max: size.height)
+        mass = random(min: 0.5, max: 8)
         radius = mass * 0.15
         
         super.init(coder: aDecoder)

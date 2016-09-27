@@ -14,6 +14,6 @@ public extension CGFloat {
     }
 }
 
-func random(min: CGFloat, _ max: CGFloat) -> CGFloat {
+func random(min: CGFloat, max: CGFloat) -> CGFloat {
     return CGFloat.random() * (max - min) + min
 }
