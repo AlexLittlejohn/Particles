@@ -9,15 +9,18 @@
 import Foundation
 
 extension Array {
-    mutating func unshift(element: Generator.Element) {
-        insert(element, atIndex: 0)
+    mutating func unshift(element: Element) {
+        insert(element, at: 0)
     }
 }
 
-func random<C: CollectionType where C.Index.Distance == Int>(array: C) -> C.Generator.Element? {
-    if array.isEmpty { return nil }
-    let len = array.count
-    let off = Int(arc4random_uniform(UInt32(len)))
-    let idx = array.startIndex.advancedBy(off)
-    return array[idx]
+extension Array {
+    func random() -> Element? {
+        if isEmpty { return nil }
+        let idx = Int(arc4random_uniform(UInt32(count)))
+        return self[idx]
+        
+    }
 }
+
+

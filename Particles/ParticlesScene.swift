@@ -24,22 +24,22 @@ class ParticlesScene: SKScene {
     
     func commonInit() {
         for _ in 0..<ParticleCount {
-            let x = random(0, size.width)
-            let y = random(0, size.height)
-            let mass = random(0.5, 8)
+            let x = random(min: size.width, max: 0)
+            let y = random(min: size.height, max: 0)
+            let mass = random(min: 8, max: 0.5)
             let particle = Particle(x: x, y: y, mass: mass)
             particles.append(particle)
             addChild(particle)
         }
         
-        scaleMode = .AspectFill
+        scaleMode = .aspectFill
     }
     
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: CFTimeInterval) {
         
         for a in particles {
             
-            if random(0,1) < 0.08 {
+            if random(min: 1, max: 0) < 0.08 {
                 a.charge = -a.charge
             }
             
@@ -66,10 +66,10 @@ class ParticlesScene: SKScene {
             a.vy += a.fy
             a.vx *= Friction
             a.vy *= Friction
-            a.tail.unshift(CGPoint(x: a.x, y: a.y))
+            a.tail.unshift(element: CGPoint(x: a.x, y: a.y))
             
             if a.tail.count > TailLength {
-                a.tail.popLast()
+                _ = a.tail.popLast()
             }
             
             a.x += a.vx
@@ -94,11 +94,13 @@ class ParticlesScene: SKScene {
             }
             
             a.lineWidth = a.radius * 2.0
-            let path = CGPathCreateMutable()
-            CGPathMoveToPoint(path, nil, a.x, a.y)
-            
+            let path = CGMutablePath()
+            path.move(to: CGPoint(x: a.x, y: a.y))
+//            CGPathMoveToPoint(path, nil, a.x, a.y)
+
             for point in a.tail {
-                CGPathAddLineToPoint(path, nil, point.x, point.y)
+                path.addLine(to: point)
+//                CGPathAddLineToPoint(path, nil, point.x, point.y)
             }
             
             a.path = path

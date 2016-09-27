@@ -20,7 +20,7 @@ class ParticlesViewController: UIViewController {
         skView.presentScene(scene)
     }
 
-    override func prefersStatusBarHidden() -> Bool {
+    override var prefersStatusBarHidden: Bool {
         return true
     }
 }
