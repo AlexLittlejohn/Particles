@@ -10,24 +10,33 @@ import SpriteKit
 
 class ParticlesScene: SKScene {
     
-    var particles = [Particle]()
+    var particles: [Particle] = []
+    var values: ParticleValues {
+        didSet {
+            setup()
+        }
+    }
     
-    override init(size: CGSize) {
+    required init(size: CGSize, values: ParticleValues) {
+        self.values = values
         super.init(size: size)
-        commonInit()
+        setup()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        commonInit()
+        fatalError()
     }
     
-    func commonInit() {
-        for _ in 0..<ParticleCount {
-            let x = random(min: size.width, max: 0)
-            let y = random(min: size.height, max: 0)
-            let mass = random(min: 8, max: 0.5)
-            let particle = Particle(x: x, y: y, mass: mass)
+    func setup() {
+        
+        removeAllChildren()
+        
+        (0..<values.particleCount).forEach { _ in
+            let x = CGFloat.random(in: 0...size.width)
+            let y = CGFloat.random(in: 0...size.height)
+            let mass = CGFloat.random(in: 0.5...8)
+            let color = values.colors[Int.random(in: 0..<values.colors.count)]
+            let particle = Particle(x: x, y: y, mass: mass, color: color)
             particles.append(particle)
             addChild(particle)
         }
@@ -37,73 +46,71 @@ class ParticlesScene: SKScene {
     
     override func update(_ currentTime: CFTimeInterval) {
         
-        for a in particles {
+        particles.forEach { particle in
             
-            if random(min: 1, max: 0) < 0.08 {
-                a.charge = -a.charge
+            if CGFloat.random(in: 0...1) < 0.08 {
+                particle.charge = -particle.charge
             }
             
             for b in particles {
-                let dx = b.x - a.x
-                let dy = b.y - a.y
+                let dx = b.x - particle.x
+                let dy = b.y - particle.y
                 let dSq = (dx * dx + dy * dy) + 0.1
                 let dst = sqrt(dSq)
-                let rad = a.radius + b.radius
+                let rad = particle.radius + b.radius
                 
                 if dst >= rad {
                     let len = 1/dst
                     let fx = dx * len
                     let fy = dy * len
-                    let f = min(MaximumForce, (Gravity * a.mass * b.mass) / dSq)
-                    a.fx += f * fx * b.charge
-                    a.fy += f * fy * b.charge
-                    b.fx += -f * fx * a.charge
-                    b.fy += -f * fx * a.charge
+                    let f = min(values.maximumForce, (values.gravity * particle.mass * b.mass) / dSq)
+                    particle.fx += f * fx * b.charge
+                    particle.fy += f * fy * b.charge
+                    b.fx += -f * fx * particle.charge
+                    b.fy += -f * fx * particle.charge
                 }
             }
             
-            a.vx += a.fx
-            a.vy += a.fy
-            a.vx *= Friction
-            a.vy *= Friction
-            a.tail.unshift(element: CGPoint(x: a.x, y: a.y))
+            particle.vx += particle.fx
+            particle.vy += particle.fy
+            particle.vx *= values.friction
+            particle.vy *= values.friction
+            particle.tail.insert(CGPoint(x: particle.x, y: particle.y), at: 0)
             
-            if a.tail.count > TailLength {
-                _ = a.tail.popLast()
+            if particle.tail.count > values.tailLength {
+                _ = particle.tail.popLast()
             }
             
-            a.x += a.vx
-            a.y += a.vy
-            a.fx = 0
-            a.fy = 0
+            particle.x += particle.vx
+            particle.y += particle.vy
+            particle.fx = 0
+            particle.fy = 0
             
-            if a.x > size.width + a.radius {
-                a.x = -a.radius
-                a.tail = [CGPoint]()
-            } else if a.x < -a.radius {
-                a.x = size.width + a.radius
-                a.tail = [CGPoint]()
+            if particle.x > size.width + particle.radius {
+                particle.x = -particle.radius
+                particle.tail = []
+            } else if particle.x < -particle.radius {
+                particle.x = size.width + particle.radius
+                particle.tail = []
             }
             
-            if a.y > size.height + a.radius {
-                a.y = -a.radius
-                a.tail = [CGPoint]()
-            } else if a.y < -a.radius {
-                a.y = size.height + a.radius
-                a.tail = [CGPoint]()
+            if particle.y > size.height + particle.radius {
+                particle.y = -particle.radius
+                particle.tail = []
+            } else if particle.y < -particle.radius {
+                particle.y = size.height + particle.radius
+                particle.tail = []
             }
             
-            a.lineWidth = a.radius * 2.0
+            particle.lineWidth = particle.radius * 2.0
             let path = CGMutablePath()
-            path.move(to: CGPoint(x: a.x, y: a.y))
-//            CGPathMoveToPoint(path, nil, a.x, a.y)
+            path.move(to: CGPoint(x: particle.x, y: particle.y))
 
-            for point in a.tail {
+            for point in particle.tail {
                 path.addLine(to: point)
-//                CGPathAddLineToPoint(path, nil, point.x, point.y)
             }
             
-            a.path = path
+            particle.path = path
         }
     }
 }

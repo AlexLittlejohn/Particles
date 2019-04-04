@@ -15,16 +15,14 @@ class Particle: SKShapeNode {
     var y: CGFloat
     var mass: CGFloat
     var radius: CGFloat
-    var charge: CGFloat = [1, -1].random()!
-    var color = Colors.random()!
+    var charge: CGFloat = CGFloat.random(in: -1...1)
     var fx: CGFloat = 0
     var fy: CGFloat = 0
     var vx: CGFloat = 0
     var vy: CGFloat = 0
+    var tail: [CGPoint] = []
     
-    var tail = [CGPoint]()
-    
-    init(x: CGFloat, y: CGFloat, mass: CGFloat) {
+    init(x: CGFloat, y: CGFloat, mass: CGFloat, color: UIColor) {
         
         self.x = x
         self.y = y
@@ -38,13 +36,6 @@ class Particle: SKShapeNode {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        let size = UIScreen.main.bounds.size
-        
-        x = random(min: 0, max: size.width)
-        y = random(min: 0, max: size.height)
-        mass = random(min: 0.5, max: 8)
-        radius = mass * 0.15
-        
-        super.init(coder: aDecoder)
+        fatalError()
     }
 }

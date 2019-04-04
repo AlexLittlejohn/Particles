@@ -7,22 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C44ADA141BFE6C5800338A99 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44ADA131BFE6C5800338A99 /* Main.storyboard */; };
 		C48E867B1BFE3F6700C74530 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E867A1BFE3F6700C74530 /* AppDelegate.swift */; };
 		C48E867F1BFE3F6700C74530 /* ParticlesScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E867E1BFE3F6700C74530 /* ParticlesScene.swift */; };
 		C48E86811BFE3F6700C74530 /* ParticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E86801BFE3F6700C74530 /* ParticlesViewController.swift */; };
 		C48E86861BFE3F6700C74530 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48E86851BFE3F6700C74530 /* Assets.xcassets */; };
 		C48E86891BFE3F6700C74530 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C48E86871BFE3F6700C74530 /* LaunchScreen.storyboard */; };
 		C48E86911BFE453F00C74530 /* Particle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E86901BFE453F00C74530 /* Particle.swift */; };
-		C48E86931BFE45AA00C74530 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E86921BFE45AA00C74530 /* Constants.swift */; };
-		C48E86961BFE470200C74530 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E86951BFE470200C74530 /* UIColorExtensions.swift */; };
-		C48E86991BFE475B00C74530 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E86981BFE475B00C74530 /* StringExtensions.swift */; };
-		C48E869B1BFE50EF00C74530 /* FloatExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E869A1BFE50EF00C74530 /* FloatExtensions.swift */; };
-		C4BB2D011C096B7E00B9779D /* ArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BB2D001C096B7E00B9779D /* ArrayExtensions.swift */; };
+		C48E86931BFE45AA00C74530 /* ParticleValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48E86921BFE45AA00C74530 /* ParticleValues.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		C44ADA131BFE6C5800338A99 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C48E86771BFE3F6700C74530 /* Particles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Particles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48E867A1BFE3F6700C74530 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48E867E1BFE3F6700C74530 /* ParticlesScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticlesScene.swift; sourceTree = "<group>"; };
@@ -31,11 +25,7 @@
 		C48E86881BFE3F6700C74530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C48E868A1BFE3F6700C74530 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C48E86901BFE453F00C74530 /* Particle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Particle.swift; sourceTree = "<group>"; };
-		C48E86921BFE45AA00C74530 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		C48E86951BFE470200C74530 /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
-		C48E86981BFE475B00C74530 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
-		C48E869A1BFE50EF00C74530 /* FloatExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatExtensions.swift; sourceTree = "<group>"; };
-		C4BB2D001C096B7E00B9779D /* ArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArrayExtensions.swift; sourceTree = "<group>"; };
+		C48E86921BFE45AA00C74530 /* ParticleValues.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParticleValues.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,9 +58,8 @@
 		C48E86791BFE3F6700C74530 /* Particles */ = {
 			isa = PBXGroup;
 			children = (
-				C48E86971BFE470900C74530 /* Extensions */,
 				C48E86941BFE45BB00C74530 /* Supporting Files */,
-				C48E86921BFE45AA00C74530 /* Constants.swift */,
+				C48E86921BFE45AA00C74530 /* ParticleValues.swift */,
 				C48E86901BFE453F00C74530 /* Particle.swift */,
 				C48E867E1BFE3F6700C74530 /* ParticlesScene.swift */,
 				C48E86801BFE3F6700C74530 /* ParticlesViewController.swift */,
@@ -85,20 +74,8 @@
 				C48E86851BFE3F6700C74530 /* Assets.xcassets */,
 				C48E868A1BFE3F6700C74530 /* Info.plist */,
 				C48E86871BFE3F6700C74530 /* LaunchScreen.storyboard */,
-				C44ADA131BFE6C5800338A99 /* Main.storyboard */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		C48E86971BFE470900C74530 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C4BB2D001C096B7E00B9779D /* ArrayExtensions.swift */,
-				C48E869A1BFE50EF00C74530 /* FloatExtensions.swift */,
-				C48E86981BFE475B00C74530 /* StringExtensions.swift */,
-				C48E86951BFE470200C74530 /* UIColorExtensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,14 +110,14 @@
 				TargetAttributes = {
 					C48E86761BFE3F6700C74530 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = GAPQH4AM76;
+						DevelopmentTeam = 2466624KEK;
 						LastSwiftMigration = 0800;
 					};
 				};
 			};
 			buildConfigurationList = C48E86721BFE3F6700C74530 /* Build configuration list for PBXProject "Particles" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -161,7 +138,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C44ADA141BFE6C5800338A99 /* Main.storyboard in Resources */,
 				C48E86891BFE3F6700C74530 /* LaunchScreen.storyboard in Resources */,
 				C48E86861BFE3F6700C74530 /* Assets.xcassets in Resources */,
 			);
@@ -174,14 +150,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C48E86931BFE45AA00C74530 /* Constants.swift in Sources */,
+				C48E86931BFE45AA00C74530 /* ParticleValues.swift in Sources */,
 				C48E867F1BFE3F6700C74530 /* ParticlesScene.swift in Sources */,
 				C48E86911BFE453F00C74530 /* Particle.swift in Sources */,
-				C48E86991BFE475B00C74530 /* StringExtensions.swift in Sources */,
-				C48E86961BFE470200C74530 /* UIColorExtensions.swift in Sources */,
 				C48E86811BFE3F6700C74530 /* ParticlesViewController.swift in Sources */,
-				C48E869B1BFE50EF00C74530 /* FloatExtensions.swift in Sources */,
-				C4BB2D011C096B7E00B9779D /* ArrayExtensions.swift in Sources */,
 				C48E867B1BFE3F6700C74530 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -293,12 +265,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GAPQH4AM76;
+				DEVELOPMENT_TEAM = 2466624KEK;
 				INFOPLIST_FILE = "Particles/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zero.Particles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -306,12 +278,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GAPQH4AM76;
+				DEVELOPMENT_TEAM = 2466624KEK;
 				INFOPLIST_FILE = "Particles/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.zero.Particles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
